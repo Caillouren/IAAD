@@ -1,0 +1,35 @@
+db.linguagem_programação.find({parâmetros})
+
+$lt|$lte	Lower then | Lower then or equal
+$gt|$gte	Greater then | Greater then or equal
+$in	In
+$ne	Not exists
+$nin	Not in
+$and	And
+$or	Or
+$eq 	Equal
+=-=-=
+db.startup.find({nome_startup: "Smart123"})
+db.startup.find({nome_startup: "Smart123"}, {nome_startup: 1})
+db.startup.find({nome_startup: "ProEdu"}, {_id: 1})
+
+db.startup.find({cidade_sede: {$in: ["Porto Alegre"] }})
+
+db.startup.find({cidade_sede: {$nin: ["Porto Alegre"] }})
+
+db.linguagem_programação.find().count()
+db.linguagem_programação.find().limit(1)
+
+db.linguagem_programação.find({ano_lancamento: {$eq: 1981}})
+
+db.linguagem_programação.find({ano_lancamento: {$lt: 1981}})
+db.linguagem_programação.find({ano_lancamento: {$lte: 1981}})
+
+db.linguagem_programação.find({ano_lancamento: {$gt: 1995}})
+db.linguagem_programação.find({ano_lancamento: {$gte: 1995}})
+
+db.linguagem_programação.find({ano_lancamento: {$ne: 1995}})
+
+
+db.linguagem_programação.find({$or: [{nome_linguagem: "Python"}, {nome_linguagem: "Java"}]})
+db.linguagem_programação.find({$and: [{nome_linguagem: "Python"}, {ano_lancamento: 1981}]})
